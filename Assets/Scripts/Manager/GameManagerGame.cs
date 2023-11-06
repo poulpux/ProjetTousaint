@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public partial class GameManager : StateManager
+{
+    State game = new State();
+
+    private void onGameEnter()
+    {
+        SceneManager.LoadScene("Game");
+    }
+    private void onGameUpdate()
+    {
+
+    }
+
+    private void onGameExit()
+    {
+
+    }
+
+}
