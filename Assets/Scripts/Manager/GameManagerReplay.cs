@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public partial class GameManager : StateManager
+public partial class GameManager 
 {
     State replay = new State();
 

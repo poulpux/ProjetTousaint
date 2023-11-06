@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public partial class GameManager : StateManager
+public partial class GameManager
 {
     State game = new State();
 
@@ -19,6 +19,12 @@ public partial class GameManager : StateManager
     private void onGameExit()
     {
 
+    }
+
+    public void GoInGame()
+    {
+        ChangeState(game);
+        SceneManager.LoadScene("Game");
     }
 
 }

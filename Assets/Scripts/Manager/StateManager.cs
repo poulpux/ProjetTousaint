@@ -37,16 +37,16 @@ public abstract class StateManager : MonoBehaviour
     {
         if (shouldEnterState)
         {
-            currentState.onStateEnter.Invoke();
+            currentState?.onStateEnter.Invoke();
             shouldEnterState = false;
             return;
         }
 
-        currentState.onStateUpdate.Invoke();
+        currentState?.onStateUpdate.Invoke();
 
         if (isChangingState)
         {
-            currentState.onStateExit.Invoke();
+            currentState?.onStateExit.Invoke();
             isChangingState = false;
             shouldEnterState = true;
             SetLatenState();

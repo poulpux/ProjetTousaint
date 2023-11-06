@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using System.Linq;
 
 public partial class GameManager : StateManager
 {
@@ -29,7 +32,10 @@ public partial class GameManager : StateManager
         game.InitState(onGameEnter, onGameUpdate, onGameExit);
         pause.InitState(onPauseEnter, onPauseUpdate, onPauseExit);
         replay.InitState(onReplayEnter, onReplayUpdate, onReplayExit);
+        quit.InitState(onQuitEnter,null,null);
         ForcedCurrentState(menu);
+
+        GoToMenuOption.AddListener((value)=>inOption =  value);
     }
 
     protected override void Update()

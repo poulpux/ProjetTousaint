@@ -5,20 +5,15 @@ using UnityEngine.SceneManagement;
 
 public partial class GameManager
 {
-    State pause = new State();
+    State quit = new State();
 
-    private void onPauseEnter()
+    private void onQuitEnter()
     {
-        
-    }
-    private void onPauseUpdate()
-    {
-
+        Application.Quit();
     }
 
-    private void onPauseExit()
+    public void onQuitExit() 
     {
-
+        ChangeState(quit);
     }
-
 }
