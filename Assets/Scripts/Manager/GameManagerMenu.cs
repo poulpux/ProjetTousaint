@@ -11,7 +11,6 @@ public partial class GameManager
     [HideInInspector] public UnityEvent <bool>GoToMenuOption = new UnityEvent<bool>();
     private void onMenuEnter()
     {
-        Debug.Log("load menu");
         SceneManager.LoadScene("Menu");
     }
     private void onMenuUpdate()
