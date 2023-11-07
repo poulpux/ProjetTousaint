@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class moveJoystick : MonoBehaviour
 {
-    [SerializeField] PlayerControler player;
     Vector2 initPos;
 
     bool isMoving;
@@ -12,7 +11,7 @@ public class moveJoystick : MonoBehaviour
     void Start()
     {
         initPos = transform.position;
-        player.posJoystick.AddListener((name, pos) =>
+        InputManager.Instance.posJoystick.AddListener((name, pos) =>
         {
             if (name == gameObject.name)
             {

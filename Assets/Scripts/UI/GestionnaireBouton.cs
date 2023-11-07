@@ -11,7 +11,7 @@ public class GestionnaireBouton : MonoBehaviour
     [SerializeField] private Image BackgroundMusic;
     [SerializeField] private Image BackgroundSound;
     void Start()
-    {
+    { 
     }
 
 
@@ -32,6 +32,16 @@ public class GestionnaireBouton : MonoBehaviour
         GameManager.Instance.OutOptionMenu();
     }
 
+    public void GoToPause()
+    {
+        visuOption.SetActive(true);
+        GameManager.Instance.GoToPause();
+    }
+    public void QuitPause()
+    {
+        visuOption.SetActive(false);
+        GameManager.Instance.QuitPause();
+    }
     public void QuitGame()
     {
         GameManager.Instance.onQuitExit();

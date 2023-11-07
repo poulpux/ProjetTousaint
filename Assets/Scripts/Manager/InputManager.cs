@@ -22,6 +22,11 @@ public class InputManager : MonoBehaviour
     private static InputManager instance;
     public static InputManager Instance  { get{return instance; } }
 
+    [SerializeField] float radiusJoystick;
+    [HideInInspector] public Vector2 rJoystickValue, lJoystickValue;
+    [HideInInspector]public TouchPress right, left;
+
+    [HideInInspector] public UnityEvent<string, Vector2> posJoystick = new UnityEvent<string, Vector2>();
 
     [SerializeField]
     private float delayTap;
@@ -42,17 +47,97 @@ public class InputManager : MonoBehaviour
 
     void Start()
     {
-
+        AddJoystickListeneur();
     }
 
     void Update()
     {
+        stickCalculation();
+        TouchGestion();
         timer += Time.deltaTime;
-        if(Input.touchCount > 0)
+       
+    }
+
+    private void AddJoystickListeneur()
+    {
+        InputManager.Instance.press.AddListener((touchPos) =>
+        {
+            if (cameraRaycast.Instance.detectTouch(touchPos.posDepart) == "LimitR")
+            {
+                right = touchPos;
+            }
+            if (cameraRaycast.Instance.detectTouch(touchPos.posDepart) == "LimitL")
+            {
+                left = touchPos;
+            }
+        });
+
+        InputManager.Instance.fingerUp.AddListener((touch) =>
+        {
+            if (cameraRaycast.Instance.detectTouch(touch.posDepart) == "LimitR")
+            {
+                right = null;
+            }
+
+            if (cameraRaycast.Instance.detectTouch(touch.posDepart) == "LimitL")
+            {
+                left = null;
+            }
+        });
+    }
+
+    private void stickCalculation()
+    {
+        RightStickCalculation();
+        LeftStickCalculation();
+    }
+
+    private void RightStickCalculation()
+    {
+        if (right != null)
+        {
+            float distance = Vector2.Distance(right.posDepart, right.currentPos);
+            rJoystickValue = right.posDepart - right.currentPos;
+            rJoystickValue.Normalize();
+            if (distance > radiusJoystick)
+            {
+                rJoystickValue *= radiusJoystick;
+            }
+            else
+            {
+                rJoystickValue *= distance;
+            }
+
+            posJoystick.Invoke("CircleMoveR", -rJoystickValue);
+        }
+    }
+
+    private void LeftStickCalculation()
+    {
+        if (left != null)
+        {
+            float distance = Vector2.Distance(left.posDepart, left.currentPos);
+            lJoystickValue = left.posDepart - left.currentPos;
+            lJoystickValue.Normalize();
+            if (distance > radiusJoystick)
+            {
+                lJoystickValue *= radiusJoystick;
+            }
+            else
+            {
+                lJoystickValue *= distance;
+            }
+            posJoystick.Invoke("CircleMoveL", -lJoystickValue);
+        }
+    }
+
+    private void TouchGestion()
+    {
+        if (Input.touchCount > 0)
         {
             foreach (var item in Input.touches)
             {
-                if(item.phase == TouchPhase.Began) 
+                if (item.phase == TouchPhase.Began)
                 {
                     TouchPress a = new TouchPress();
                     a.posDepart = item.position;
@@ -61,19 +146,19 @@ public class InputManager : MonoBehaviour
                     tap.Invoke(item.position);
                 }
 
-                if(item.phase == TouchPhase.Moved) 
+                if (item.phase == TouchPhase.Moved)
                 {
                     foreach (var item1 in savePos)
                     {
-                        if(item.fingerId == item1.touch.fingerId)
+                        if (item.fingerId == item1.touch.fingerId)
                         {
                             item1.currentPos = item.position;
                             press.Invoke(item1);
                         }
                     }
-                   
+
                 }
-                if(item.phase == TouchPhase.Ended)
+                if (item.phase == TouchPhase.Ended)
                 {
                     TouchPress desableTouche = new TouchPress();
                     foreach (var item1 in savePos)

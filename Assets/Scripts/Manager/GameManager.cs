@@ -8,7 +8,6 @@ using System.Linq;
 
 public partial class GameManager : StateManager
 {
-
     private static GameManager instance;
     public static GameManager Instance { get { return instance; } }
 
@@ -33,8 +32,7 @@ public partial class GameManager : StateManager
         pause.InitState(onPauseEnter, onPauseUpdate, onPauseExit);
         replay.InitState(onReplayEnter, onReplayUpdate, onReplayExit);
         quit.InitState(onQuitEnter,null,null);
-        ForcedCurrentState(menu);
-
+        ForcedCurrentState(game);
         GoToMenuOption.AddListener((value)=>inOption =  value);
     }
 
