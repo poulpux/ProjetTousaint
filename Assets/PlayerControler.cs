@@ -1,98 +1,94 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEngine.UI;
-using UnityEditor.Experimental.GraphView;
-using System.IO;
-using UnityEditor.Rendering;
-using System;
-using UnityEngine.EventSystems;
-
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/EndroitToTouch", order = 1)]
-public class EndroitToTouch : ScriptableObject
-{
-    public string pseudo;
-    public Vector2 pos;
-    public float radius;
-}
+using UnityEngine.Events;
 
 public class PlayerControler : MonoBehaviour
 {
-    [SerializeField] List<GameObject> giveObjectToTouch = new List<GameObject>();
-    [SerializeField] private List<EndroitToTouch> listEndroitToTouch = new List<EndroitToTouch>();
-    [SerializeField] private GameObject circleTest;
-    [SerializeField] private Transform parentTransform;
+    [SerializeField] float radiusJoystick;
+    TouchPress right, left;
 
-    [SerializeField] Camera cam;
-    GraphicRaycaster uiRaycaster;
-    PointerEventData pointerEventData;
-    EventSystem eventSystem;
+    private Vector2 rJoystickValue, lJoystickValue;
 
-    void Start()
+    [HideInInspector]public UnityEvent<string, Vector2> posJoystick = new UnityEvent<string, Vector2>();
+    private void Start()
     {
-        uiRaycaster = GetComponent<GraphicRaycaster>();
-        eventSystem = GetComponent<EventSystem>();
-        pointerEventData = new PointerEventData(eventSystem);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetMouseButton(0))
+        cameraRaycast.Instance.touchBouton.AddListener((name) =>
         {
-            pointerEventData.position = Input.mousePosition;
-            var results = new List<RaycastResult>();
-            uiRaycaster.Raycast(pointerEventData, results);
-
-            foreach (var result in results)
+             if (name == "DashButton")
             {
-                Debug.Log("Objet d'UI touché : " + result.gameObject.name);
+                Debug.Log("dash");
             }
-        }
-        //if(Input.touchCount > 0) 
-        //    ChercheIfWeClickOnButton(Input.touches[0].position);
-    }
+        });
 
-    private string ChercheIfWeClickOnButton(Vector3 posTouch)
-    {
-        //float[] distanceList =new  float[listEndroitToTouch.Count];
-        foreach (var item in listEndroitToTouch)
+        InputManager.Instance.press.AddListener((touchPos) =>
         {
-            if(Vector2.Distance(posTouch,item.pos)< item.radius)
+            if (cameraRaycast.Instance.detectTouch(touchPos.posDepart ) == "LimitR")
             {
-                Debug.Log(Input.touches[0].position + "           " + item.pseudo);
-                return item.pseudo;
+                right = touchPos;
+                Debug.Log("press limitR : ");
+            }
+            if (cameraRaycast.Instance.detectTouch(touchPos.posDepart) == "LimitL")
+            {
+                left = touchPos;
+                Debug.Log("press limitL : ");
+            }
+        });
+
+        InputManager.Instance.fingerUp.AddListener((touch) =>
+        {
+            if (cameraRaycast.Instance.detectTouch(touch.posDepart) == "LimitR")
+            {
+                right = null;
+                Debug.Log("stop press right" );
             }
 
-        }
-        return null;
+            if (cameraRaycast.Instance.detectTouch(touch.posDepart) == "LimitL")
+            {
+                left = null;
+                Debug.Log("stop press left");
+            }
+        });
     }
 
-    private void translateInEndroitToTouch()
+    private void Update()
     {
-        foreach (var item in giveObjectToTouch)
-        {
-            RectTransform rect = item.GetComponent<RectTransform>();
-            EndroitToTouch temp = new EndroitToTouch();
-            //temp.pos = rect.position;
-           
-            //temp.pos = new Vector2(rect.anchorMin.x * Screen.width, rect.anchorMin.y * Screen.height);
-           
-            temp.radius = rect.rect.width/2f;
-            //Vector3 test = new Vector3(temp.radius/2, temp.radius/2, 0f);
-            temp.pos += rect.anchoredPosition;
-            temp.pseudo = item.name;
-            Debug.Log(temp.pseudo+" : "+temp.radius+" : "+temp.pos);
-            listEndroitToTouch.Add(temp);
-            GameObject newcircle = circleTest;
-            newcircle.gameObject.transform.position = temp.pos;
-            newcircle.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(temp.radius*2f, temp.radius*2f);
+        Rotation();
+    }
 
-            Instantiate(newcircle, parentTransform);
+    private void Rotation()
+    {
+        if(right !=null)
+        {
+            float distance = Vector2.Distance(right.posDepart, right.currentPos);
+            rJoystickValue = right.posDepart - right.currentPos;
+            rJoystickValue.Normalize();
+            if (distance > radiusJoystick)
+            {
+                rJoystickValue *= radiusJoystick;
+            }
+            else
+            {
+                rJoystickValue *= distance;
+            }
+
+            posJoystick.Invoke("CircleMoveR", -rJoystickValue);
         }
 
-        giveObjectToTouch.Clear();
+        if(left !=null)
+        {
+            float distance = Vector2.Distance(left.posDepart, left.currentPos);
+            lJoystickValue = left.posDepart - left.currentPos;
+            lJoystickValue.Normalize();
+            if (distance > radiusJoystick)
+            {
+                lJoystickValue *= radiusJoystick;
+            }
+            else
+            {
+                lJoystickValue *= distance; 
+            }
+            posJoystick.Invoke("CircleMoveL", -lJoystickValue);
+        }
     }
 }
