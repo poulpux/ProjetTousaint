@@ -7,6 +7,7 @@ public class moveJoystick : MonoBehaviour
     [SerializeField] PlayerControler player;
     Vector2 initPos;
 
+    bool isMoving;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +18,16 @@ public class moveJoystick : MonoBehaviour
             {
                 transform.position = initPos;
                 transform.position += (Vector3) pos;
+                isMoving = true;
             }
         });
     }
 
     // Update is called once per frame
-    void Update()
+    private void LateUpdate()
     {
-        transform.position = initPos;
+        if(!isMoving)
+            transform.position = initPos;
+        isMoving = false;
     }
 }
