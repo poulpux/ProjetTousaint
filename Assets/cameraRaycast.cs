@@ -4,7 +4,6 @@ using UnityEngine;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine.UI;
-using UnityEditor.Experimental.GraphView;
 using System.IO;
 using UnityEditor.Rendering;
 using System;
@@ -34,7 +33,7 @@ public class cameraRaycast : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
+           
         }
     }
     void Start()
