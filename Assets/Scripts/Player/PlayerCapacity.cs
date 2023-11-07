@@ -37,7 +37,15 @@ public class PlayerCapacity : MonoBehaviour
         if (timerDash > dashCouldown)
         {
             Debug.Log("Fonction dash");
-            transform.position += new Vector3(InputManager.Instance.lJoystickValue.x, 0f, InputManager.Instance.lJoystickValue.y) * -dashDistance;
+
+            float radAngle = (transform.localRotation.eulerAngles.y-90f) * Mathf.Deg2Rad; // Convertir l'angle en radians
+
+            float x = Mathf.Cos(radAngle); // Calculer la coordonnée x
+            float y = Mathf.Sin(radAngle); // Calculer la coordonnée y
+
+            Vector3 normalizedCoordinates = new Vector3(x,0f, y); // Créer un vecteur 2D avec les coordonnées normalisées
+
+            transform.position += normalizedCoordinates * -dashDistance;
             timerDash = 0;
         }
     }
