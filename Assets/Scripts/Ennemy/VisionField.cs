@@ -22,12 +22,6 @@ public class VisionField : MonoBehaviour
     private Infiltration playerInfiltration;
     void Start()
     {
-        playerInfiltration = FindFirstObjectByType<Infiltration>();
-        playerInfiltration.Reperated.AddListener(() =>
-        {
-            VisionConeMesh.Clear();
-            this.enabled = false;
-        });
         transform.AddComponent<MeshRenderer>().material = VisionConeMaterial;
         MeshFilter_ = transform.AddComponent<MeshFilter>();
         VisionConeMesh = new Mesh();
@@ -35,6 +29,12 @@ public class VisionField : MonoBehaviour
 
         VisionConeMaterial.color = new Color(1, 1, 0f, 166f/255f);
 
+        playerInfiltration = FindFirstObjectByType<Infiltration>();
+        playerInfiltration.Reperated.AddListener(() =>
+        {
+            VisionConeMesh.Clear();
+            this.enabled = false;
+        });
     }
 
 

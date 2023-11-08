@@ -13,12 +13,12 @@ public class PlayerControler : MonoBehaviour
 
     private void Update()
     {
-        if ((InputManager.Instance.right != null || InputManager.Instance.left !=null) && Time.timeScale != 0f)
+        if ((InputManager.Instance.right != null || InputManager.Instance.left !=null) && Time.timeScale != 0f && InputManager.Instance.canMove)
         {
             Rotation();
         }
 
-        if(InputManager.Instance.left != null)
+        if(InputManager.Instance.left != null && InputManager.Instance.canMove)
         {
             Movement();
         }

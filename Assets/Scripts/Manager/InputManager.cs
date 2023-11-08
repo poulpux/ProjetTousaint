@@ -12,8 +12,8 @@ public class TouchPress
 }
 public class InputManager : MonoBehaviour
 {
-    [HideInInspector] public UnityEvent<Vector2> tap = new UnityEvent<Vector2>();
-    [HideInInspector] public UnityEvent<Vector2> doubleTap = new UnityEvent<Vector2>();
+    [HideInInspector] public UnityEvent<Vector3> tap = new UnityEvent<Vector3>();
+    [HideInInspector] public UnityEvent<Vector3> doubleTap = new UnityEvent<Vector3>();
     [HideInInspector] public UnityEvent<TouchPress> press = new UnityEvent<TouchPress>();
     [HideInInspector] public UnityEvent<TouchPress> fingerUp = new UnityEvent<TouchPress>();
 
@@ -32,6 +32,8 @@ public class InputManager : MonoBehaviour
     private float delayTap;
 
     private float timer;
+
+    public bool canMove = true;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -143,7 +145,7 @@ public class InputManager : MonoBehaviour
                     a.posDepart = item.position;
                     a.touch = item;
                     savePos.Add(a);
-                    tap.Invoke(item.position);
+                    tap.Invoke((Vector3)item.position);
                 }
 
                 if (item.phase == TouchPhase.Moved)
