@@ -52,7 +52,6 @@ public class Execute : MonoBehaviour
     {
         if(other.gameObject.tag == "Ennemy")
         {
-            changeEnnemyColor();
             canExecuteBis = true;
             executableEnnemy.Add(other.gameObject);
         }
@@ -64,6 +63,11 @@ public class Execute : MonoBehaviour
     {
         if(timeToExecute > timerExcute)
         {
+            if (ennemyToExecute != null)
+            {
+                changeEnnemyColor();
+                RotateTowardsPosition(ennemyToExecute.transform.position);
+            }
             timerExcute +=Time.deltaTime;
             InputManager.Instance.canMove = false;
         }
@@ -120,8 +124,15 @@ public class Execute : MonoBehaviour
         }
     }
 
-    private void changeButtonColor()
+    public void RotateTowardsPosition(Vector3 targetPosition)
     {
-        
+        Vector3 direction = targetPosition - transform.position;
+        direction.y = 0; // Garder l'objet à plat
+
+        if (direction != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, Time.deltaTime * 1000f);
+        }
     }
 }

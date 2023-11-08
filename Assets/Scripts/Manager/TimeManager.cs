@@ -30,7 +30,6 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public float getCurrentTimeScale()
@@ -41,5 +40,11 @@ public class TimeManager : MonoBehaviour
     {
         currentTimeScale = timeScale;
         Time.timeScale = currentTimeScale;
+        Time.fixedDeltaTime = Time.timeScale * 0.02f;
+    }
+
+    public void DoSlow()
+    {
+        Time.fixedDeltaTime = Time.timeScale * 0.02f;
     }
 }
