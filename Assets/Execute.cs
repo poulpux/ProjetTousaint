@@ -28,9 +28,12 @@ public class Execute : MonoBehaviour
 
         InputManager.Instance.tap.AddListener((touchPos) =>
         {
-            if (cameraRaycast.Instance.detectTouch(touchPos) == "LimitR")
+            if (cameraRaycast.Instance.detectTouch((Vector3)touchPos) == "PunchButton")
             {
+                Debug.Log("try to execute");
                 executableEnnemy.Sort();
+                Destroy(executableEnnemy[0]); 
+                executableEnnemy.RemoveAt(0);
             }
         });
             sphere = GetComponent<SphereCollider>();    
