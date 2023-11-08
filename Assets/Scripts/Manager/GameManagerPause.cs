@@ -20,7 +20,7 @@ public partial class GameManager
 
     private void onPauseExit()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = TimeManager.Instance.getCurrentTimeScale();
     }
 
     public void GoToPause()

@@ -11,13 +11,20 @@ using UnityEngine.Events;
 
 public class cameraRaycast : MonoBehaviour
 {
-    [SerializeField] List<GameObject> giveObjectToTouch = new List<GameObject>();
+    [SerializeField] 
+    List<GameObject> giveObjectToTouch = new List<GameObject>();
+
     private List<string> listEndroitToTouch = new List<string>();
 
-    [SerializeField] GraphicRaycaster uiRaycaster;
-    PointerEventData pointerEventData;
-    [SerializeField] EventSystem eventSystem;
+    [SerializeField] 
+    GraphicRaycaster uiRaycaster;
 
+    PointerEventData pointerEventData;
+
+    [SerializeField] 
+    EventSystem eventSystem;
+
+    [HideInInspector]
     public UnityEvent<string> touchBouton = new UnityEvent<string>();
 
     private static cameraRaycast instance;
