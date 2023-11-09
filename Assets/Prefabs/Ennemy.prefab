@@ -326,6 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8309469263397278574}
+  - component: {fileID: 4246248627516618977}
   - component: {fileID: 4625672598704321363}
   - component: {fileID: 540007219821877014}
   m_Layer: 0
@@ -353,6 +354,21 @@ Transform:
   - {fileID: 8691705331069913425}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4246248627516618977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973145216714975277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21ca3034bc0a4b4c832e5b1820f919b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  playerInfiltration: {fileID: 5182273081109113666, guid: 311049f5432c1824abbab7e2d9c9a2d3, type: 3}
+  CadavrePref: {fileID: 3231984736735643585, guid: b4b076dd289bad44981ffe90fc63b4c4, type: 3}
 --- !u!114 &4625672598704321363
 MonoBehaviour:
   m_ObjectHideFlags: 0

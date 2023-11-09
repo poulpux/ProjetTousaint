@@ -61,13 +61,21 @@ public class VisionField : MonoBehaviour
             Cosine = Mathf.Cos(Currentangle);
             Vector3 RaycastDirection = (transform.forward * Cosine) + (transform.right * Sine);
             Vector3 VertForward = (Vector3.forward * Cosine) + (Vector3.right * Sine);
+            if (Physics.Raycast(transform.position, RaycastDirection, out RaycastHit hit1, VisionRange))
+            {
+                if(hit1.collider.CompareTag("Cadavre"))
+                    playerDetected = true;
+            }
+
             if (Physics.Raycast(transform.position, RaycastDirection, out RaycastHit hit, VisionRange, VisionObstructingLayer))
             {
                 //timerDetect += Time.deltaTime;
-                if (hit.collider.CompareTag("Player"))
+                if (hit.collider.CompareTag("Player") || hit.collider.CompareTag("Cadavre"))
                 {
                     playerDetected = true;
                 }
+
+                
                 Vertices[i + 1] = VertForward * hit.distance;
 
                 // Vérifier si l'objet touché est le joueur
