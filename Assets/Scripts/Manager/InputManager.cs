@@ -60,6 +60,11 @@ public class InputManager : MonoBehaviour
        
     }
 
+    private void LateUpdate()
+    {
+        canMove = true;
+    }
+
     private void AddJoystickListeneur()
     {
         InputManager.Instance.press.AddListener((touchPos) =>

@@ -74,7 +74,6 @@ public class Execute : MonoBehaviour
         else if(InputManager.Instance.canMove == false)
         {
             ennemyToExecute = null;
-            InputManager.Instance.canMove = true;
         }
     }
 
