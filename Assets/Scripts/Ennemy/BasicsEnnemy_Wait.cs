@@ -17,7 +17,7 @@ public partial class BasicsEnnemy
     private bool goToGauche;
     private void OnOverwatchEnter()
     {
-        targetRotation = listRotationOverwatch[Random.Range(0, listRotationOverwatch.Count)];
+        //targetRotation = listRotationOverwatch[Random.Range(0, listRotationOverwatch.Count)];
     }
 
     private void onOverwatchUpdate()

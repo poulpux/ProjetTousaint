@@ -12,7 +12,7 @@ public partial class BasicsEnnemy : StateManager
 {
     [SerializeField] Type type;
 
-    [SerializeField] private Infiltration playerInfiltration;
+    private Infiltration playerInfiltration;
     [SerializeField] private GameObject CadavrePref;
     private GameObject cadavreInstance = null;
 
@@ -31,7 +31,9 @@ public partial class BasicsEnnemy : StateManager
         
         SomeOtherMethod();
 
+        playerInfiltration = FindFirstObjectByType<Infiltration>();
         playerInfiltration.Reperated.AddListener(()=> aggressive = true);
+        agent.speed = speedWalk;
     }
 
     // Update is called once per frame
@@ -63,6 +65,9 @@ public partial class BasicsEnnemy : StateManager
     private void PlayerReperated()
     {
         if (aggressive)
+        {
+            agent.isStopped = true;
             ChangeState(takeCover);
+        }
     }
 }
