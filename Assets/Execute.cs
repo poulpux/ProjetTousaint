@@ -27,6 +27,8 @@ public class Execute : MonoBehaviour
             {
                 item.SetActive(can);
             }
+
+
         });
 
         InputManager.Instance.tap.AddListener((touchPos) =>
@@ -70,6 +72,7 @@ public class Execute : MonoBehaviour
             }
             timerExcute +=Time.deltaTime;
             InputManager.Instance.canMove = false;
+            executableEnnemy.Clear();
         }
         else if(InputManager.Instance.canMove == false)
         {
@@ -82,9 +85,9 @@ public class Execute : MonoBehaviour
         if (executableEnnemy.Count > 0 && timeToExecute < timerExcute)
         {
             timerExcute = 0;
+            SortObjectsByDistance();
             ennemyToExecute = executableEnnemy[0];
             Destroy(executableEnnemy[0], timeToExecute);
-            executableEnnemy.RemoveAt(0);
         }
         else
         {
@@ -133,5 +136,15 @@ public class Execute : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, Time.deltaTime * 1000f);
         }
+    }
+
+    void SortObjectsByDistance()
+    {
+        executableEnnemy.Sort((a, b) =>
+            Vector3.Distance(a.transform.position, transform.position)
+            .CompareTo(Vector3.Distance(b.transform.position, transform.position))
+        );
+
+        // Maintenant, votre liste "objects" est triée par distance par rapport au joueur
     }
 }
