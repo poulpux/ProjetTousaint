@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public partial class GameManager : StateManager
 {
@@ -34,6 +35,12 @@ public partial class GameManager : StateManager
         quit.InitState(onQuitEnter,null,null);
         ForcedCurrentState(game);
         GoToMenuOption.AddListener((value)=>inOption =  value);
+
+        lvSuivant.AddListener(() =>
+        {
+            sceneNumber++;
+            SceneManager.LoadScene(levelList[sceneNumber - 1]);
+        });
     }
 
     protected override void Update()

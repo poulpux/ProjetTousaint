@@ -67,7 +67,7 @@ public partial class BasicsEnnemy : StateManager
         if (aggressive)
         {
             agent.isStopped = true;
-            ChangeState(takeCover);
+            ChangeState(shot);
         }
     }
 }

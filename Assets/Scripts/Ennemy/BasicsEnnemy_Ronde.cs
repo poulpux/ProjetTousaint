@@ -15,7 +15,7 @@ public partial class BasicsEnnemy
     private float timerRonde;
     private void OnRondeEnter()
     {
-        assignNewObjecj();
+        
     }
 
     private void onRondeUpdate()

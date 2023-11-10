@@ -19,6 +19,8 @@ public class InputManager : MonoBehaviour
 
     List<TouchPress> savePos = new List<TouchPress>();
 
+    [HideInInspector] public UnityEvent TapStart = new UnityEvent();
+
     private static InputManager instance;
     public static InputManager Instance  { get{return instance; } }
 
@@ -77,6 +79,15 @@ public class InputManager : MonoBehaviour
             {
                 left = touchPos;
             }
+        });
+
+        InputManager.Instance.tap.AddListener((touchPos) =>
+        {
+            if (cameraRaycast.Instance.detectTouch(touchPos) == "Start")
+            {
+                TapStart.Invoke();
+            }
+           
         });
 
         InputManager.Instance.fingerUp.AddListener((touch) =>

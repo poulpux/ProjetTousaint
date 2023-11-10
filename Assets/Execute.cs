@@ -13,6 +13,7 @@ public class Execute : MonoBehaviour
     [HideInInspector] public UnityEvent<bool> canExecute =new UnityEvent<bool>();
 
     [SerializeField] private List<GameObject> showInExecute = new List<GameObject>();
+    [SerializeField] private List<GameObject> hideInExecute = new List<GameObject>();
     private List<GameObject> executableEnnemy = new List<GameObject>() ;
     private GameObject ennemyToExecute;
 
@@ -26,6 +27,11 @@ public class Execute : MonoBehaviour
             foreach (var item in showInExecute)
             {
                 item.SetActive(can);
+            }
+
+            foreach (var item in hideInExecute)
+            {
+                item.SetActive(!can);
             }
 
 

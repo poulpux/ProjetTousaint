@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public partial class GameManager
 {
     State game = new State();
 
+    [SerializeField]
+    List<string> levelList;
+    private int sceneNumber;
+    public UnityEvent lvSuivant = new UnityEvent();
     private void onGameEnter()
     {
         SceneManager.LoadScene("Game");
