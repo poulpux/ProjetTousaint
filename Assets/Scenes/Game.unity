@@ -2671,6 +2671,11 @@ MonoBehaviour:
   delayShoot: 3
   maxBullet: 40
   currentBullet: 40
+--- !u!54 &764902102 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1509099361210422776, guid: 311049f5432c1824abbab7e2d9c9a2d3, type: 3}
+  m_PrefabInstance: {fileID: 2562780749926623479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &776695850
 GameObject:
   m_ObjectHideFlags: 0
@@ -7788,6 +7793,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 67246165087102251, guid: 311049f5432c1824abbab7e2d9c9a2d3, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 764902102}
+    - target: {fileID: 67246165087102251, guid: 311049f5432c1824abbab7e2d9c9a2d3, type: 3}
       propertyPath: dashTime
       value: 0.03
       objectReference: {fileID: 0}
@@ -7847,6 +7856,10 @@ PrefabInstance:
       propertyPath: 'showInExecute.Array.data[0]'
       value: 
       objectReference: {fileID: 1487414648}
+    - target: {fileID: 7735063267552720014, guid: 311049f5432c1824abbab7e2d9c9a2d3, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 764902102}
     - target: {fileID: 7774440738876937074, guid: 311049f5432c1824abbab7e2d9c9a2d3, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
