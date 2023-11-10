@@ -20,14 +20,17 @@ public class VisionField : MonoBehaviour
     private float timerDetect;
 
     private Infiltration playerInfiltration;
+
+    private MeshRenderer renderer;
     void Start()
     {
         transform.AddComponent<MeshRenderer>().material = VisionConeMaterial;
+        renderer = GetComponent<MeshRenderer>();
         MeshFilter_ = transform.AddComponent<MeshFilter>();
         VisionConeMesh = new Mesh();
         VisionAngle *= Mathf.Deg2Rad;
 
-        VisionConeMaterial.color = new Color(1, 1, 0f, 166f/255f);
+        //VisionConeMaterial.color = new Color(1, 1, 0f, 166f/255f);
 
         playerInfiltration = FindFirstObjectByType<Infiltration>();
         playerInfiltration.Reperated.AddListener(() =>
@@ -123,7 +126,7 @@ public class VisionField : MonoBehaviour
 
     private void changeConeColor()
     {
-        VisionConeMaterial.color = new Color(1, (255f-(timerDetect/timeToDetect)*255f)/255f, 0f, 166f/255f);
+        renderer.material.color = new Color(1, (255f-(timerDetect/timeToDetect)*255f)/255f, 0f, 166f/255f);
     }
 
 }

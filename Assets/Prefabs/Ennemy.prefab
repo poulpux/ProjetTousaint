@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 743563769735660890}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.10574344, z: 0, w: 0.99439347}
-  m_LocalPosition: {x: 0.3, y: 0, z: 0.3}
-  m_LocalScale: {x: 0.4, y: 1, z: 0.8}
+  m_LocalPosition: {x: 0.3, y: 1, z: 0.3}
+  m_LocalScale: {x: 0.4, y: 2, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8309469263397278574}
@@ -133,8 +133,8 @@ Transform:
   m_GameObject: {fileID: 4091779942119182384}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.10574344, z: 0, w: 0.99439347}
-  m_LocalPosition: {x: -0.29, y: 0, z: 0.3}
-  m_LocalScale: {x: 0.4, y: 1, z: 0.8}
+  m_LocalPosition: {x: -0.29, y: 1, z: 0.3}
+  m_LocalScale: {x: 0.4, y: 2, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8309469263397278574}
@@ -237,8 +237,8 @@ Transform:
   m_GameObject: {fileID: 6690310457661832393}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8309469263397278574}
@@ -348,12 +348,12 @@ MonoBehaviour:
   CadavrePref: {fileID: 3231984736735643585, guid: b4b076dd289bad44981ffe90fc63b4c4, type: 3}
   AmmoPref: {fileID: 4780240705153009149, guid: 1893b792b3283bb449b7608173ea8cc9, type: 3}
   EnnemyShotPrefab: {fileID: 9052419538969368048, guid: c536a469e8ad7db4cac35c39ca8ab8f5, type: 3}
-  timeToReact: 1.2
+  timeToReact: 1
   delayEntreRafale: 2
   Occurency: 20
   DelayShoot: 5
   nbBalleParRafale: 4
-  bulletSpeed: 20
+  bulletSpeed: 12
   tpsAvantNouvelleRafale: 0
   listObj:
   - {fileID: 0}

@@ -65,7 +65,7 @@ public partial class BasicsEnnemy
 
         if (timerShoot < (float)nbBalleParRafale / (float)DelayShoot + timeToReact + delayEntreRafale)
         {
-            if (timerShoot > (float)nbBalleTirés / (float)DelayShoot + timeToReact + delayEntreRafale)
+            if (timerShoot > (float)nbBalleTirés / (float)DelayShoot + timeToReact && nbBalleTirés <= nbBalleParRafale)
             {
                 nbBalleTirés++;
                 GameObject shot = Instantiate(EnnemyShotPrefab, transform.position, Quaternion.identity);

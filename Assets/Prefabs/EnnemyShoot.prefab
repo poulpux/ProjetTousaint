@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4091865142676967301}
   - component: {fileID: 7455667773750150206}
   - component: {fileID: 8883299643142545634}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnnemyShoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
