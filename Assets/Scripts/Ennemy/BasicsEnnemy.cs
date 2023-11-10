@@ -14,6 +14,16 @@ public partial class BasicsEnnemy : StateManager
 
     private Infiltration playerInfiltration;
     [SerializeField] private GameObject CadavrePref;
+
+    [SerializeField] GameObject EnnemyShotPrefab;
+
+    [SerializeField] float timeToReact;
+    [SerializeField] float delayEntreRafale;
+    [SerializeField] float Occurency;
+    [SerializeField] int DelayShoot;
+    [SerializeField] int nbBalleParRafale;
+    [SerializeField] float bulletSpeed;
+    [SerializeField] float tpsAvantNouvelleRafale;
     private GameObject cadavreInstance = null;
 
     private bool aggressive;

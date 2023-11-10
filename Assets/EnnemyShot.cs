@@ -20,8 +20,7 @@ public class EnnemyShot : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
-            Destroy(this.gameObject);
+            GameManager.Instance.dead.Invoke();
         }
 
         if (collision.gameObject.CompareTag("Enviro") == true)

@@ -41,6 +41,11 @@ public partial class GameManager : StateManager
             sceneNumber++;
             SceneManager.LoadScene(levelList[sceneNumber - 1]);
         });
+
+        dead.AddListener(() =>
+        {
+            SceneManager.LoadScene(levelList[sceneNumber]);
+        });
     }
 
     protected override void Update()

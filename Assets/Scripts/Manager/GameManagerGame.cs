@@ -11,7 +11,8 @@ public partial class GameManager
     [SerializeField]
     List<string> levelList;
     private int sceneNumber;
-    public UnityEvent lvSuivant = new UnityEvent();
+    [HideInInspector] public UnityEvent lvSuivant = new UnityEvent();
+    [HideInInspector] public UnityEvent dead = new UnityEvent();
     private void onGameEnter()
     {
         SceneManager.LoadScene("Game");
