@@ -2461,6 +2461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelList:
+  - Game
   - Game 1
   lvSuivant:
     m_PersistentCalls:
@@ -2477,6 +2478,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dead:
+    m_PersistentCalls:
+      m_Calls: []
   GoToMenuOption:
     m_PersistentCalls:
       m_Calls: []
@@ -3984,6 +3988,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4246248627516618977, guid: 54014fa83b798884f8f1e01659a705e4, type: 3}
+      propertyPath: EnnemyShotPrefab
+      value: 
+      objectReference: {fileID: 9052419538969368048, guid: c536a469e8ad7db4cac35c39ca8ab8f5, type: 3}
+    - target: {fileID: 4246248627516618977, guid: 54014fa83b798884f8f1e01659a705e4, type: 3}
       propertyPath: 'listObj.Array.data[0]'
       value: 
       objectReference: {fileID: 947351058}
@@ -3991,6 +3999,10 @@ PrefabInstance:
       propertyPath: 'listObj.Array.data[1]'
       value: 
       objectReference: {fileID: 343721450}
+    - target: {fileID: 4246248627516618977, guid: 54014fa83b798884f8f1e01659a705e4, type: 3}
+      propertyPath: tpsAvantNouvelleRafale
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8309469263397278574, guid: 54014fa83b798884f8f1e01659a705e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.3
@@ -4034,6 +4046,10 @@ PrefabInstance:
     - target: {fileID: 8973145216714975277, guid: 54014fa83b798884f8f1e01659a705e4, type: 3}
       propertyPath: m_Name
       value: Ennemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8973145216714975277, guid: 54014fa83b798884f8f1e01659a705e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4126,6 +4142,14 @@ PrefabInstance:
     - target: {fileID: 4246248627516618977, guid: 54014fa83b798884f8f1e01659a705e4, type: 3}
       propertyPath: type
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4246248627516618977, guid: 54014fa83b798884f8f1e01659a705e4, type: 3}
+      propertyPath: EnnemyShotPrefab
+      value: 
+      objectReference: {fileID: 9052419538969368048, guid: c536a469e8ad7db4cac35c39ca8ab8f5, type: 3}
+    - target: {fileID: 4246248627516618977, guid: 54014fa83b798884f8f1e01659a705e4, type: 3}
+      propertyPath: nbBalleParRafale
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4246248627516618977, guid: 54014fa83b798884f8f1e01659a705e4, type: 3}
       propertyPath: listObj.Array.size
@@ -7860,6 +7884,10 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 764902102}
+    - target: {fileID: 7735063267552720014, guid: 311049f5432c1824abbab7e2d9c9a2d3, type: 3}
+      propertyPath: capa
+      value: 
+      objectReference: {fileID: 764902095}
     - target: {fileID: 7774440738876937074, guid: 311049f5432c1824abbab7e2d9c9a2d3, type: 3}
       propertyPath: m_LocalScale.y
       value: 1

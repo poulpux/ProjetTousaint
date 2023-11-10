@@ -38,8 +38,10 @@ public partial class GameManager : StateManager
 
         lvSuivant.AddListener(() =>
         {
+            Shoot player = FindFirstObjectByType<Shoot>();
+            PlayerPrefs.SetInt("nbAmmo", player.currentBullet);
             sceneNumber++;
-            SceneManager.LoadScene(levelList[sceneNumber - 1]);
+            SceneManager.LoadScene(levelList[sceneNumber]);
         });
 
         dead.AddListener(() =>

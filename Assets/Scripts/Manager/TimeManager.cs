@@ -45,6 +45,6 @@ public class TimeManager : MonoBehaviour
 
     public void DoSlow()
     {
-        Time.fixedDeltaTime = Time.timeScale * 0.02f;
+        Time.fixedDeltaTime = Time.timeScale * 0.01f;
     }
 }

@@ -15,7 +15,8 @@ public partial class GameManager
     [HideInInspector] public UnityEvent dead = new UnityEvent();
     private void onGameEnter()
     {
-        SceneManager.LoadScene("Game");
+        PlayerPrefs.SetInt("nbAmmo", 0);
+        SceneManager.LoadScene(levelList[0]);
     }
     private void onGameUpdate()
     {

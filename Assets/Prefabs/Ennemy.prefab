@@ -346,6 +346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   CadavrePref: {fileID: 3231984736735643585, guid: b4b076dd289bad44981ffe90fc63b4c4, type: 3}
+  AmmoPref: {fileID: 4780240705153009149, guid: 1893b792b3283bb449b7608173ea8cc9, type: 3}
   EnnemyShotPrefab: {fileID: 9052419538969368048, guid: c536a469e8ad7db4cac35c39ca8ab8f5, type: 3}
   timeToReact: 1.2
   delayEntreRafale: 2

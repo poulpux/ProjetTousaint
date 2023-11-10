@@ -5,7 +5,8 @@ using UnityEngine;
 public enum Type
 {
     OVERWATCH,
-    RONDE
+    RONDE,
+    PLOT
 }
 
 public partial class BasicsEnnemy : StateManager
@@ -14,6 +15,7 @@ public partial class BasicsEnnemy : StateManager
 
     private Infiltration playerInfiltration;
     [SerializeField] private GameObject CadavrePref;
+    [SerializeField] private GameObject AmmoPref;
 
     [SerializeField] GameObject EnnemyShotPrefab;
 
@@ -25,6 +27,7 @@ public partial class BasicsEnnemy : StateManager
     [SerializeField] float bulletSpeed;
     [SerializeField] float tpsAvantNouvelleRafale;
     private GameObject cadavreInstance = null;
+    private GameObject ammoInstance = null;
 
     private bool aggressive;
     // Start is called before the first frame update
@@ -54,22 +57,32 @@ public partial class BasicsEnnemy : StateManager
 
     private void OnDestroy()
     {
-        if(cadavreInstance != null)
-              cadavreInstance.transform.position = transform.position;
+        if (cadavreInstance != null)
+        {
+            cadavreInstance.transform.position = transform.position;
+        }
+        if(ammoInstance != null)
+        {
+            ammoInstance.transform.position = transform.position + transform.forward * 0.6f;
+        }
     }
 
     private void SomeOtherMethod()
     {
         // Appeler cette méthode à partir d'un endroit approprié
         cadavreInstance = Instantiate(CadavrePref, new Vector3(-5000,-5000), Quaternion.identity);
+        if(Random.Range(0,3)==0 && type != Type.PLOT)
+            ammoInstance = Instantiate(AmmoPref, new Vector3(-5000,-5000), Quaternion.identity);
     }
 
     private void choseComportement()
     {
         if (type == Type.RONDE)
             ForcedCurrentState(ronde);
-        else
+        else if (type == Type.OVERWATCH)
             ForcedCurrentState(overwatch);
+        else
+            ForcedCurrentState(idle);
     }
 
     private void PlayerReperated()
@@ -79,5 +92,10 @@ public partial class BasicsEnnemy : StateManager
             agent.isStopped = true;
             ChangeState(shot);
         }
+    }
+
+    public void inExecution()
+    {
+        ForcedCurrentState(idle);
     }
 }

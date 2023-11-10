@@ -16,6 +16,7 @@ public class Shoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentBullet = PlayerPrefs.GetInt("nbAmmo");
         InputManager.Instance.posJoystick.AddListener((name, pos) =>
         {
             if (name == "CircleMoveR")
@@ -55,5 +56,10 @@ public class Shoot : MonoBehaviour
             a.GetComponent<Rigidbody>().AddForce(vec3 * 30, ForceMode.Impulse);
             Destroy(a, 3f);
         }
+    }
+
+    public void addAmmo(int ammo)
+    {
+        currentBullet = currentBullet + ammo > maxBullet ? maxBullet : currentBullet + ammo;
     }
 }

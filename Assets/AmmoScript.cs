@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WinAreanScript : MonoBehaviour
+public class AmmoScript : MonoBehaviour
 {
+    [SerializeField] int nbAmmo;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,8 @@ public class WinAreanScript : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            GameManager.Instance.lvSuivant.Invoke();
+            collision.gameObject.GetComponent<Shoot>().addAmmo(nbAmmo);
+            Destroy(this.gameObject);
         }
     }
 }

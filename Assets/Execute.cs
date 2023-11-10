@@ -93,6 +93,7 @@ public class Execute : MonoBehaviour
             timerExcute = 0;
             SortObjectsByDistance();
             ennemyToExecute = executableEnnemy[0];
+            ennemyToExecute.GetComponent<BasicsEnnemy>().inExecution();
             Destroy(executableEnnemy[0], timeToExecute);
         }
         else
