@@ -1621,11 +1621,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4246248627516618977, guid: 54014fa83b798884f8f1e01659a705e4, type: 3}
       propertyPath: type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4246248627516618977, guid: 54014fa83b798884f8f1e01659a705e4, type: 3}
-      propertyPath: timeToOverwatch
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4246248627516618977, guid: 54014fa83b798884f8f1e01659a705e4, type: 3}
       propertyPath: 'listRotationOverwatch.Array.data[0]'
@@ -2122,10 +2118,6 @@ PrefabInstance:
     - target: {fileID: 4780240705153009149, guid: 1893b792b3283bb449b7608173ea8cc9, type: 3}
       propertyPath: m_Name
       value: GunAmmo
-      objectReference: {fileID: 0}
-    - target: {fileID: 5383730683471907904, guid: 1893b792b3283bb449b7608173ea8cc9, type: 3}
-      propertyPath: nbAmmo
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6336764382571966670, guid: 1893b792b3283bb449b7608173ea8cc9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6673,10 +6665,6 @@ PrefabInstance:
     - target: {fileID: 6856322774508378818, guid: 7b0bad0f1e639e1449115e4efc763b96, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8661566094369082672, guid: 7b0bad0f1e639e1449115e4efc763b96, type: 3}
-      propertyPath: 'levelList.Array.data[0]'
-      value: Tuto0
       objectReference: {fileID: 0}
     - target: {fileID: 8661566094369082672, guid: 7b0bad0f1e639e1449115e4efc763b96, type: 3}
       propertyPath: 'levelList.Array.data[1]'

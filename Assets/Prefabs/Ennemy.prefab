@@ -361,7 +361,7 @@ MonoBehaviour:
   agent: {fileID: 7453789082744604627}
   timeWait: 1
   speedWalk: 4
-  timeToOverwatch: 3
+  timeToOverwatch: 6
   listRotationOverwatch:
   - 35
   - 180
