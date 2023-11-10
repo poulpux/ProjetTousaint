@@ -25,7 +25,7 @@ public class Cooldown : MonoBehaviour
         {
             if (player.inTimeStop)
             {
-                image.fillAmount =1-( player.timerTimeStop / player.timeStopDuration);
+                image.fillAmount =1-( player.timerTimeStop / player.timeStopDuration*player.timeStopPower);
             }
             else
                 image.fillAmount =player.currentTimeStopCharge>0 ? 1 : 0;

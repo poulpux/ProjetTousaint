@@ -9,7 +9,7 @@ public class PlayerCapacity : MonoBehaviour
     [SerializeField] private float dashTime;
 
     public int maxTimeStop = 3;
-    [SerializeField] private float timeStopPower;
+    public float timeStopPower;
     public int currentTimeStopCharge = 1;
     public float timeStopDuration;
 
@@ -94,7 +94,7 @@ public class PlayerCapacity : MonoBehaviour
         if(inTimeStop)
         {
             timerTimeStop += Time.unscaledDeltaTime;
-            if(timerTimeStop > timeStopDuration)
+            if(timerTimeStop > timeStopDuration/timeStopPower)
             {
                 TimeManager.Instance.setCurrentTimeScale(1f);
                 timerTimeStop = 0;

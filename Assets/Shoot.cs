@@ -16,6 +16,7 @@ public class Shoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.pickMeBoy.Invoke(this);
         currentBullet = PlayerPrefs.GetInt("nbAmmo");
         InputManager.Instance.posJoystick.AddListener((name, pos) =>
         {

@@ -8,7 +8,10 @@ public partial class BasicsEnnemy
 
     private void OnIdleEnter()
     {
-
+        if(agent!=null && type != Type.PLOT)
+        {
+            agent.SetDestination(transform.position);
+        }
     }
 
     private void onIdleUpdate()

@@ -46,10 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4180afd021c1394f9ad0664a6cf0532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickMeBoy:
+    m_PersistentCalls:
+      m_Calls: []
   levelList:
-  - Room0
   - Tuto0
   - Tuto1
+  - Room0
+  - Room1
   lvSuivant:
     m_PersistentCalls:
       m_Calls:

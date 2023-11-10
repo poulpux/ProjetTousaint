@@ -6,12 +6,15 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public partial class GameManager : StateManager
 {
     private static GameManager instance;
     public static GameManager Instance { get { return instance; } }
 
+    [HideInInspector] public UnityEvent <Shoot> pickMeBoy = new UnityEvent <Shoot> ();
+    Shoot player;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -34,11 +37,11 @@ public partial class GameManager : StateManager
         replay.InitState(onReplayEnter, onReplayUpdate, onReplayExit);
         quit.InitState(onQuitEnter,null,null);
         ForcedCurrentState(game);
+
         GoToMenuOption.AddListener((value)=>inOption =  value);
 
         lvSuivant.AddListener(() =>
         {
-            Shoot player = FindFirstObjectByType<Shoot>();
             PlayerPrefs.SetInt("nbAmmo", player.currentBullet);
             sceneNumber++;
             SceneManager.LoadScene(levelList[sceneNumber]);
@@ -48,6 +51,8 @@ public partial class GameManager : StateManager
         {
             SceneManager.LoadScene(levelList[sceneNumber]);
         });
+
+        pickMeBoy.AddListener((playerr) => player = playerr);
     }
 
     protected override void Update()

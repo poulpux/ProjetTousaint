@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 67246165087102251}
   - component: {fileID: 5642683759623031096}
   - component: {fileID: 5182273081109113666}
+  - component: {fileID: 7394804032111730655}
   - component: {fileID: 2941447202969221390}
   - component: {fileID: 1509099361210422776}
   m_Layer: 3
@@ -158,6 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedWalk: 0.1
+  rb: {fileID: 0}
+  capa: {fileID: 0}
 --- !u!114 &67246165087102251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,13 +175,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashCouldown: 2
   dashDistance: 1
+  dashTime: 0
   maxTimeStop: 3
   timeStopPower: 0.2
   currentTimeStopCharge: 1
-  timeStopDuration: 5
+  timeStopDuration: 1
   timerDash: 0
   timerTimeStop: 0
   inTimeStop: 0
+  rb: {fileID: 0}
+  inDashInfo: 0
 --- !u!114 &5642683759623031096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +204,7 @@ MonoBehaviour:
       m_Calls: []
   showInExecute:
   - {fileID: 0}
+  hideInExecute: []
 --- !u!114 &5182273081109113666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +224,22 @@ MonoBehaviour:
   - {fileID: 0}
   objectToApere:
   - {fileID: 0}
+--- !u!114 &7394804032111730655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2231431621939921448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0287b5b79096f458615e2100b4e206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShootPrefab: {fileID: 9052419538969368048, guid: 5efaf532a7d57b94db511a262a6282b3, type: 3}
+  delayShoot: 3
+  maxBullet: 40
+  currentBullet: 0
 --- !u!135 &2941447202969221390
 SphereCollider:
   m_ObjectHideFlags: 0
