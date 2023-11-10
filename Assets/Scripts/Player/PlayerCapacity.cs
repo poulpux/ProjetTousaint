@@ -17,6 +17,10 @@ public class PlayerCapacity : MonoBehaviour
     [HideInInspector] public float timerTimeStop;
     [HideInInspector] public bool inTimeStop;
 
+    [SerializeField] Rigidbody rb;
+
+    public bool inDashInfo;
+
     private float timerInDash;
     private Vector3 targetDirection;
     // Start is called before the first frame update
@@ -64,12 +68,15 @@ public class PlayerCapacity : MonoBehaviour
 
     void inDash()
     {
-        if(timerInDash < dashTime)
+        if (timerInDash < dashTime)
         {
+            inDashInfo = true;
             InputManager.Instance.canMove = false;
             timerInDash += Time.deltaTime;
-            transform.position += targetDirection * Time.deltaTime * dashDistance / dashTime;
+            rb.velocity = targetDirection * dashDistance / dashTime;
         }
+        else
+            inDashInfo = false;
     }
 
     void useTimeStop()

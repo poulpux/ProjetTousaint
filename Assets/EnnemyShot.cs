@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShot : MonoBehaviour
+public class EnnemyShot : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class PlayerShot : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("EnnemyBody") == true || collision.gameObject.CompareTag("Ennemy") == true)
+        if(collision.gameObject.CompareTag("Player"))
         {
             Destroy(collision.gameObject);
             Destroy(this.gameObject);

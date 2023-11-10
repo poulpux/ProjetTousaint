@@ -7,8 +7,11 @@ using UnityEngine.UIElements;
 public class PlayerControler : MonoBehaviour
 {
     [SerializeField] float speedWalk;
+    [SerializeField] Rigidbody rb;
+    [SerializeField] PlayerCapacity capa;
     private void Start()
     {
+        capa = FindFirstObjectByType<PlayerCapacity>(); 
     }
 
     private void Update()
@@ -21,6 +24,10 @@ public class PlayerControler : MonoBehaviour
         if(InputManager.Instance.left != null && InputManager.Instance.canMove)
         {
             Movement();
+        }
+        else if(!capa.inDashInfo)
+        {
+            rb.Sleep();
         }
     }
 
@@ -43,6 +50,6 @@ public class PlayerControler : MonoBehaviour
 
     private void Movement()
     {
-        transform.position += new Vector3(InputManager.Instance.lJoystickValue.x,0f, InputManager.Instance.lJoystickValue.y) * Time.deltaTime * -speedWalk;
+        rb.velocity = new Vector3(InputManager.Instance.lJoystickValue.x,0f, InputManager.Instance.lJoystickValue.y) * -speedWalk;
     }    
 }
