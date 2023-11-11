@@ -1624,6 +1624,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4246248627516618977, guid: 54014fa83b798884f8f1e01659a705e4, type: 3}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4246248627516618977, guid: 54014fa83b798884f8f1e01659a705e4, type: 3}
       propertyPath: timeToOverwatch
       value: 6
       objectReference: {fileID: 0}
@@ -1683,7 +1687,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ennemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7453789082744604627, guid: 54014fa83b798884f8f1e01659a705e4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

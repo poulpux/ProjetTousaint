@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 245abf05393798a4cae0f388a6bc6eea
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: 6cbbade687b6bf6428185940db8efcf9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game 1.unity
     guid: af632696e3bfc6745bafd9c4e19a2df9
   - enabled: 1
@@ -23,5 +23,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Room0.unity
     guid: 986b77925aa5c3b44ac26d131465258c
+  - enabled: 1
+    path: Assets/Scenes/Room1.unity
+    guid: 65b07bdf0d7fad34aaddc73edbc4a3c4
+  - enabled: 1
+    path: Assets/Scenes/Room2.unity
+    guid: 139fa7174466c8248821e5dc8984b650
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

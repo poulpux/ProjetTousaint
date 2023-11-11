@@ -14,6 +14,6 @@ public class TimerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = TimeManager.Instance.currentTimer.ToString("F2");
+        text.text ="Timer : "+ TimeManager.Instance.currentTimer.ToString("F2");
     }
 }

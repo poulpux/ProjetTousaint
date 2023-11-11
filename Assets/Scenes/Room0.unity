@@ -860,7 +860,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: ee801f3e7c75cc644a14de1c5dfca915, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 362613e9a1c006e4080e070e8aeab5ee, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &213682242
 Transform:
@@ -8413,7 +8413,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Good luck Soft Lizard
+  m_text: 'You will have to infiltrate the prestigious school of GameAcademy to change
+    your rating.
+
+
+    Good luck Soft Lizard'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8440,8 +8444,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
-  m_fontSizeBase: 70
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9276,8 +9280,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 52.81006, y: -295.63}
-  m_SizeDelta: {x: 435.69, y: 196.97}
+  m_AnchoredPosition: {x: 52.81006, y: -422.3}
+  m_SizeDelta: {x: 490.5, y: 333.86}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2035917935
 MonoBehaviour:
@@ -9408,7 +9412,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -1042.2, y: -99.74}
+  m_AnchoredPosition: {x: -1042.2, y: 175}
   m_SizeDelta: {x: 477.75, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2044542650

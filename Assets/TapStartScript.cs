@@ -22,6 +22,7 @@ public class TapStartScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TimeManager.Instance.currentTimer = 0;
         timer += monte == true ? Time.unscaledDeltaTime : -Time.unscaledDeltaTime;
 
         if(timer>0.7)

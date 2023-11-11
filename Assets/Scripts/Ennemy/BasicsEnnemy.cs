@@ -46,6 +46,7 @@ public partial class BasicsEnnemy : StateManager
 
         playerInfiltration = FindFirstObjectByType<Infiltration>();
         playerInfiltration.Reperated.AddListener(()=> aggressive = true);
+        if(agent !=null)
         agent.speed = speedWalk;
     }
 

@@ -31,7 +31,10 @@ public class TimeManager : MonoBehaviour
         GameManager.Instance.lvSuivant.AddListener(() =>
         {
             if (SceneManager.GetActiveScene().name != "Tuto0" && SceneManager.GetActiveScene().name != "Tuto1")
+            {
                 globalTimer += currentTimer;
+            }
+            currentTimer = 0;
         });
 
         GameManager.Instance.dead.AddListener(() =>
