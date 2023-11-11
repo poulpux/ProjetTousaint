@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimeManager : MonoBehaviour
 {
+    private float globalTimer;
+    public float currentTimer;
     private float currentTimeScale = 1f;
 
     private static TimeManager instance;
@@ -22,14 +26,24 @@ public class TimeManager : MonoBehaviour
         }
     }
         // Start is called before the first frame update
-        void Start()
+    void Start()
     {
-        
+        GameManager.Instance.lvSuivant.AddListener(() =>
+        {
+            if (SceneManager.GetActiveScene().name != "Tuto0" && SceneManager.GetActiveScene().name != "Tuto1")
+                globalTimer += currentTimer;
+        });
+
+        GameManager.Instance.dead.AddListener(() =>
+        {
+            currentTimer = 0;
+        });
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentTimer += Time.deltaTime;
     }
 
     public float getCurrentTimeScale()
