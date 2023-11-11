@@ -29,5 +29,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Room2.unity
     guid: 139fa7174466c8248821e5dc8984b650
+  - enabled: 1
+    path: Assets/Scenes/WinRoom.unity
+    guid: d39fb76cb49facf49b3f6e3886a1d437
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

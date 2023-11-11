@@ -51,6 +51,7 @@ MonoBehaviour:
       m_Calls: []
   levelList:
   - Tuto0
+  - WinRoom
   - Tuto1
   - Room0
   - Room1
@@ -126,3 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e7a55823f30e64f9d66a801bf9a963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  globalTimer: 0
+  currentTimer: 0

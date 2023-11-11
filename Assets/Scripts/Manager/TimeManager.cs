@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TimeManager : MonoBehaviour
 {
-    private float globalTimer;
+    public float globalTimer;
     public float currentTimer;
     private float currentTimeScale = 1f;
 
