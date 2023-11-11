@@ -10681,10 +10681,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8661566094369082672, guid: 7b0bad0f1e639e1449115e4efc763b96, type: 3}
-      propertyPath: 'levelList.Array.data[1]'
-      value: Tuto1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -36,7 +36,7 @@ public partial class GameManager : StateManager
         pause.InitState(onPauseEnter, onPauseUpdate, onPauseExit);
         replay.InitState(onReplayEnter, onReplayUpdate, onReplayExit);
         quit.InitState(onQuitEnter,null,null);
-        ForcedCurrentState(game);
+        ForcedCurrentState(menu);
 
         GoToMenuOption.AddListener((value)=>inOption =  value);
 
@@ -58,5 +58,11 @@ public partial class GameManager : StateManager
     protected override void Update()
     {
         base.Update();
+    }
+
+    public void BackToMenu()
+    {
+        sceneNumber = 0;
+        ChangeState(menu);
     }
 }
