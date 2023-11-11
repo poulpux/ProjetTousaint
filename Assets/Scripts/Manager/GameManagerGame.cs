@@ -31,7 +31,7 @@ public partial class GameManager
     public void GoInGame()
     {
         ChangeState(game);
-        SceneManager.LoadScene("Game");
+        dead.Invoke();
     }
 
 }

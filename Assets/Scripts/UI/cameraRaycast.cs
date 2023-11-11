@@ -39,7 +39,6 @@ public class cameraRaycast : MonoBehaviour
         else
         {
             instance = this;
-           
         }
     }
     void Start()

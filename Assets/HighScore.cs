@@ -10,7 +10,8 @@ public class HighScore : MonoBehaviour
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
-        //AllClean();
+        if(PlayerPrefs.GetFloat("highscore1") == 0)
+            AllClean();
         triBestScore();
         for (int i = 1; i < 8; i++)
         {

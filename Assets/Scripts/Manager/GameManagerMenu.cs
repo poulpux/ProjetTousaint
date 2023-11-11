@@ -20,7 +20,7 @@ public partial class GameManager
 
     private void onMenuExit()
     {
-
+        PlayerPrefs.SetInt("nbAmmo", 0);
     }
 
     public void GoOptionMenu()

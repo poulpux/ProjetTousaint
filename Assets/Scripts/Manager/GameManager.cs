@@ -42,9 +42,12 @@ public partial class GameManager : StateManager
 
         lvSuivant.AddListener(() =>
         {
-            PlayerPrefs.SetInt("nbAmmo", player.currentBullet);
-            sceneNumber++;
-            SceneManager.LoadScene(levelList[sceneNumber]);
+            
+                Debug.Log(sceneNumber);
+                PlayerPrefs.SetInt("nbAmmo", player.currentBullet);
+                sceneNumber++;
+                SceneManager.LoadScene(levelList[sceneNumber]);
+            
         });
 
         dead.AddListener(() =>
@@ -52,6 +55,10 @@ public partial class GameManager : StateManager
             SceneManager.LoadScene(levelList[sceneNumber]);
         });
 
+        foreach (var item in levelList)
+        {
+            Debug.Log(item);
+        }
         pickMeBoy.AddListener((playerr) => player = playerr);
     }
 
