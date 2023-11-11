@@ -10,6 +10,8 @@ using UnityEngine.Events;
 
 public partial class GameManager : StateManager
 {
+    private float timerALaCon;
+
     private static GameManager instance;
     public static GameManager Instance { get { return instance; } }
 
@@ -42,12 +44,14 @@ public partial class GameManager : StateManager
 
         lvSuivant.AddListener(() =>
         {
-            
+            if (timerALaCon > 1f)
+            {
                 Debug.Log(sceneNumber);
                 PlayerPrefs.SetInt("nbAmmo", player.currentBullet);
                 sceneNumber++;
                 SceneManager.LoadScene(levelList[sceneNumber]);
-            
+                timerALaCon = 0f;
+            }
         });
 
         dead.AddListener(() =>
@@ -65,6 +69,7 @@ public partial class GameManager : StateManager
     protected override void Update()
     {
         base.Update();
+        timerALaCon += Time.deltaTime;
     }
 
     public void BackToMenu()
