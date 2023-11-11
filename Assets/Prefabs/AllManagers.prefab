@@ -54,6 +54,7 @@ MonoBehaviour:
   - Tuto1
   - Room0
   - Room1
+  - Room2
   lvSuivant:
     m_PersistentCalls:
       m_Calls:
