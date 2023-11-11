@@ -13,10 +13,15 @@ public class Shoot : MonoBehaviour
 
     private float timerShoot;
     private Vector3 posTir;
+
+
+    private void Awake()
+    {
+        GameManager.Instance.pickMeBoy.Invoke(this);
+    }
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.pickMeBoy.Invoke(this);
         currentBullet = PlayerPrefs.GetInt("nbAmmo");
         InputManager.Instance.posJoystick.AddListener((name, pos) =>
         {

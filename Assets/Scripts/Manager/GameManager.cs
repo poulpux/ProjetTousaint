@@ -46,7 +46,6 @@ public partial class GameManager : StateManager
         {
             if (timerALaCon > 1f)
             {
-                Debug.Log(sceneNumber);
                 PlayerPrefs.SetInt("nbAmmo", player.currentBullet);
                 sceneNumber++;
                 SceneManager.LoadScene(levelList[sceneNumber]);
