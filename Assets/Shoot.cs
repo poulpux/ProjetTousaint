@@ -14,15 +14,11 @@ public class Shoot : MonoBehaviour
     private float timerShoot;
     private Vector3 posTir;
 
-
-    private void Awake()
-    {
-        GameManager.Instance.pickMeBoy.Invoke(this);
-    }
     // Start is called before the first frame update
     void Start()
     {
-        currentBullet = PlayerPrefs.GetInt("nbAmmo");
+        GameManager.Instance.pickMeBoy.Invoke(this);
+        currentBullet = GameManager.Instance.currentBalls;
         InputManager.Instance.posJoystick.AddListener((name, pos) =>
         {
             if (name == "CircleMoveR")

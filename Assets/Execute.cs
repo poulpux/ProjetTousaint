@@ -77,12 +77,13 @@ public class Execute : MonoBehaviour
                 RotateTowardsPosition(ennemyToExecute.transform.position);
             }
             timerExcute +=Time.deltaTime;
-            InputManager.Instance.canMove = false;
+            InputManager.Instance.canMoveExecute = false;
             executableEnnemy.Clear();
         }
         else if(InputManager.Instance.canMove == false)
         {
             ennemyToExecute = null;
+            InputManager.Instance.canMoveExecute = true;
         }
     }
 

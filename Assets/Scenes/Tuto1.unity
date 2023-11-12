@@ -1975,38 +1975,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &764902090 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2231431621939921448, guid: 311049f5432c1824abbab7e2d9c9a2d3, type: 3}
-  m_PrefabInstance: {fileID: 2562780749926623479}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &764902095 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 67246165087102251, guid: 311049f5432c1824abbab7e2d9c9a2d3, type: 3}
   m_PrefabInstance: {fileID: 2562780749926623479}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764902090}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b304adfe7ca83aa47b4f0dd8fd98b60f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &764902101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764902090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af0287b5b79096f458615e2100b4e206, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShootPrefab: {fileID: 9052419538969368048, guid: 5efaf532a7d57b94db511a262a6282b3, type: 3}
-  delayShoot: 3
-  maxBullet: 40
-  currentBullet: 0
 --- !u!54 &764902102 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1509099361210422776, guid: 311049f5432c1824abbab7e2d9c9a2d3, type: 3}
@@ -6561,10 +6540,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2231431621939921448, guid: 311049f5432c1824abbab7e2d9c9a2d3, type: 3}
-      insertIndex: 5
-      addedObject: {fileID: 764902101}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 311049f5432c1824abbab7e2d9c9a2d3, type: 3}
 --- !u!1001 &3987982548836380365
 PrefabInstance:

@@ -8,6 +8,7 @@ TagManager:
   - Cadavre
   - EnnemyBody
   - Enviro
+  - DontDestroyOnLoad
   layers:
   - Default
   - TransparentFX
