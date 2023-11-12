@@ -11,7 +11,9 @@ using UnityEngine.Android;
 
 public partial class GameManager : StateManager
 {
-    private float timerALaCon;
+    public int currentBalls;
+
+    private float timerTropBien;
 
     private static GameManager instance;
     public static GameManager Instance { get { return instance; } }
@@ -51,13 +53,12 @@ public partial class GameManager : StateManager
 
         lvSuivant.AddListener(() =>
         {
-            if (timerALaCon > 1f)
+            if (timerTropBien > 1f)
             {
-                PlayerPrefs.SetInt("nbAmmo", player.currentBullet);
-                PlayerPrefs.Save();
+                currentBalls = player.currentBullet;
                 sceneNumber++;
                 SceneManager.LoadScene(levelList[sceneNumber]);
-                timerALaCon = 0f;
+                timerTropBien = 0f;
             }
         });
 
@@ -72,7 +73,7 @@ public partial class GameManager : StateManager
     protected override void Update()
     {
         base.Update();
-        timerALaCon += Time.deltaTime;
+        timerTropBien += Time.deltaTime;
     }
 
     public void BackToMenu()
