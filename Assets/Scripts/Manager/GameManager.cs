@@ -11,9 +11,7 @@ using UnityEngine.Android;
 
 public partial class GameManager : StateManager
 {
-    private float timerVraimenBien;
-
-    public int currentBalls;
+    private float timerALaCon;
 
     private static GameManager instance;
     public static GameManager Instance { get { return instance; } }
@@ -37,6 +35,11 @@ public partial class GameManager : StateManager
     {
         base.Start();
 
+        if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageRead))
+        {
+            Permission.RequestUserPermission(Permission.ExternalStorageRead);
+        }
+
         menu.InitState(onMenuEnter, onMenuUpdate, onMenuExit);
         game.InitState(onGameEnter, onGameUpdate, onGameExit);
         pause.InitState(onPauseEnter, onPauseUpdate, onPauseExit);
@@ -48,14 +51,13 @@ public partial class GameManager : StateManager
 
         lvSuivant.AddListener(() =>
         {
-            if (timerVraimenBien > 1f)
+            if (timerALaCon > 1f)
             {
-                currentBalls = player.currentBullet;
-                //PlayerPrefs.SetInt("nbAmmo", player.currentBullet);
-                //PlayerPrefs.Save();
+                PlayerPrefs.SetInt("nbAmmo", player.currentBullet);
+                PlayerPrefs.Save();
                 sceneNumber++;
                 SceneManager.LoadScene(levelList[sceneNumber]);
-                timerVraimenBien = 0f;
+                timerALaCon = 0f;
             }
         });
 
@@ -70,18 +72,12 @@ public partial class GameManager : StateManager
     protected override void Update()
     {
         base.Update();
-        timerVraimenBien += Time.deltaTime;
+        timerALaCon += Time.deltaTime;
     }
 
     public void BackToMenu()
     {
-        timerVraimenBien = 6f;
         sceneNumber = 0;
-        GameObject[] dontDestroyObjects = GameObject.FindGameObjectsWithTag("DontDestroyOnLoad");
-        foreach (GameObject obj in dontDestroyObjects)
-        {
-            Destroy(obj);
-        }
         ChangeState(menu);
     }
 }

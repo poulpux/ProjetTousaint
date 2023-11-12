@@ -36,8 +36,6 @@ public class InputManager : MonoBehaviour
     private float timer;
 
     public bool canMove = true;
-    public bool canMoveExecute = true;
-    public bool canMoveDash = true;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -64,10 +62,9 @@ public class InputManager : MonoBehaviour
        
     }
 
-    void defCanMove()
+    private void LateUpdate()
     {
-        if (canMoveDash && canMoveExecute) { canMove = true; }
-        else { canMove = false; }
+        canMove = true;
     }
 
     private void AddJoystickListeneur()

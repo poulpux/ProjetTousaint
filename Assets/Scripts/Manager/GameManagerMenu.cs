@@ -20,7 +20,8 @@ public partial class GameManager
 
     private void onMenuExit()
     {
-        currentBalls = 0;
+        PlayerPrefs.SetInt("nbAmmo", 0);
+        PlayerPrefs.Save();
         SceneManager.LoadScene(levelList[0]);
     }
 

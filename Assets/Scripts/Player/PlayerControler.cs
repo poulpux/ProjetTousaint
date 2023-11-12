@@ -25,7 +25,7 @@ public class PlayerControler : MonoBehaviour
         {
             Movement();
         }
-        else if(InputManager.Instance.canMoveDash)
+        else if(!capa.inDashInfo)
         {
             rb.Sleep();
         }

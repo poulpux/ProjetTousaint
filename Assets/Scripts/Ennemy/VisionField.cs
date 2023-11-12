@@ -72,12 +72,16 @@ public class VisionField : MonoBehaviour
 
             if (Physics.Raycast(transform.position, RaycastDirection, out RaycastHit hit, VisionRange, VisionObstructingLayer))
             {
+                //timerDetect += Time.deltaTime;
                 if (hit.collider.CompareTag("Player") || hit.collider.CompareTag("Cadavre"))
                 {
                     playerDetected = true;
                 }
 
+                
                 Vertices[i + 1] = VertForward * hit.distance;
+
+                // Vérifier si l'objet touché est le joueur
             }
             else
             {
