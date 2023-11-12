@@ -1408,9 +1408,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 764902095}
     - target: {fileID: 1257368733206017476, guid: 1c3ed9043472bb542a40e69e19244b7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1257368733206017476, guid: 1c3ed9043472bb542a40e69e19244b7f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 270861809}
+      objectReference: {fileID: 669172275}
+    - target: {fileID: 1257368733206017476, guid: 1c3ed9043472bb542a40e69e19244b7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1257368733206017476, guid: 1c3ed9043472bb542a40e69e19244b7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1494728703491624872, guid: 1c3ed9043472bb542a40e69e19244b7f, type: 3}
       propertyPath: m_Name
       value: Canvas

@@ -4633,10 +4633,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 270861809}
-        m_TargetAssemblyTypeName: GestionnaireBouton, Assembly-CSharp
-        m_MethodName: QuitPause
-        m_Mode: 1
+      - m_Target: {fileID: 669172275}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
