@@ -70,13 +70,12 @@ public class PlayerCapacity : MonoBehaviour
     {
         if (timerInDash < dashTime)
         {
-            inDashInfo = true;
-            InputManager.Instance.canMove = false;
+            InputManager.Instance.canDash = false;
             timerInDash += Time.deltaTime;
             rb.velocity = targetDirection * dashDistance / dashTime;
         }
         else
-            inDashInfo = false;
+            InputManager.Instance.canDash = true;
     }
 
     void useTimeStop()

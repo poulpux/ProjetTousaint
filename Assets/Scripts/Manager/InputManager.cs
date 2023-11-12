@@ -36,6 +36,8 @@ public class InputManager : MonoBehaviour
     private float timer;
 
     public bool canMove = true;
+    public bool canExecute = true;
+    public bool canDash = true;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -59,12 +61,15 @@ public class InputManager : MonoBehaviour
         stickCalculation();
         TouchGestion();
         timer += Time.deltaTime;
-       
+        canMoveAssign();
+
+
     }
 
-    private void LateUpdate()
+    private void canMoveAssign()
     {
-        canMove = true;
+        if(canExecute && canDash) { canMove = true; }
+        else { canMove = false; }
     }
 
     private void AddJoystickListeneur()

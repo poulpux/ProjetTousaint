@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Shoot : MonoBehaviour
 {
@@ -18,7 +19,11 @@ public class Shoot : MonoBehaviour
     void Start()
     {
         GameManager.Instance.pickMeBoy.Invoke(this);
-        currentBullet = GameManager.Instance.currentBalls;
+        if(SceneManager.GetActiveScene().name == "Room0")
+            currentBullet = 4;
+        else
+            currentBullet = GameManager.Instance.currentBalls;
+
         InputManager.Instance.posJoystick.AddListener((name, pos) =>
         {
             if (name == "CircleMoveR")
