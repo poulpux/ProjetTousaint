@@ -22,6 +22,9 @@ public class TapStartScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        InputManager.Instance.right = null; InputManager.Instance.left = null;
+        InputManager.Instance.lJoystickValue = new Vector2(0f, 0f);
+        InputManager.Instance.rJoystickValue = new Vector2(0f, 0f);
         TimeManager.Instance.currentTimer = 0;
         timer += monte == true ? Time.unscaledDeltaTime : -Time.unscaledDeltaTime;
 
