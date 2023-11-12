@@ -407,7 +407,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 9
   VisionConeResolution: 120
-  timeToDetect: 0.4
+  timeToDetect: 0.3
 --- !u!195 &7453789082744604627
 NavMeshAgent:
   m_ObjectHideFlags: 0
