@@ -8,6 +8,7 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
+
 public partial class GameManager : StateManager
 {
     private float timerALaCon;
@@ -47,6 +48,7 @@ public partial class GameManager : StateManager
             if (timerALaCon > 1f)
             {
                 PlayerPrefs.SetInt("nbAmmo", player.currentBullet);
+                PlayerPrefs.Save();
                 sceneNumber++;
                 SceneManager.LoadScene(levelList[sceneNumber]);
                 timerALaCon = 0f;
@@ -58,10 +60,6 @@ public partial class GameManager : StateManager
             SceneManager.LoadScene(levelList[sceneNumber]);
         });
 
-        foreach (var item in levelList)
-        {
-            Debug.Log(item);
-        }
         pickMeBoy.AddListener((playerr) => player = playerr);
     }
 

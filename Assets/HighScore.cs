@@ -32,6 +32,7 @@ public class HighScore : MonoBehaviour
             if (TimeManager.Instance.globalTimer < PlayerPrefs.GetFloat("highscore" + i.ToString()))
             {
                 PlayerPrefs.SetFloat("highscore" + i.ToString(), TimeManager.Instance.globalTimer);
+                PlayerPrefs.Save();
                 break;
             }
         }
@@ -42,6 +43,7 @@ public class HighScore : MonoBehaviour
         for (int i = 1; i < 8; i++)
         {
                 PlayerPrefs.SetFloat("highscore" + i.ToString(), i*100+100);
+                PlayerPrefs.Save();
         }
     }
 }
