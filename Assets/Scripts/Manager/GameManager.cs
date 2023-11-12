@@ -7,7 +7,7 @@ using TMPro;
 using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
-
+using UnityEngine.Android;
 
 public partial class GameManager : StateManager
 {
@@ -34,6 +34,12 @@ public partial class GameManager : StateManager
     protected override void Start()
     {
         base.Start();
+
+        if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageRead))
+        {
+            Permission.RequestUserPermission(Permission.ExternalStorageRead);
+        }
+
         menu.InitState(onMenuEnter, onMenuUpdate, onMenuExit);
         game.InitState(onGameEnter, onGameUpdate, onGameExit);
         pause.InitState(onPauseEnter, onPauseUpdate, onPauseExit);
