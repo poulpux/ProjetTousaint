@@ -79,6 +79,11 @@ public partial class GameManager : StateManager
     public void BackToMenu()
     {
         sceneNumber = 0;
+        GameObject[] dontDestroyObjects = GameObject.FindGameObjectsWithTag("DontDestroyOnLoad");
+        foreach (GameObject obj in dontDestroyObjects)
+        {
+            Destroy(obj);
+        }
         ChangeState(menu);
     }
 }
