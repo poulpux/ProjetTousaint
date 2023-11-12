@@ -15,7 +15,7 @@ public class HighScore : MonoBehaviour
         triBestScore();
         for (int i = 1; i < 8; i++)
         {
-            text.text += PlayerPrefs.GetFloat("highscore" + i.ToString()).ToString()+ "\r\n";
+            text.text += PlayerPrefs.GetFloat("highscore" + i.ToString("F2")).ToString()+ "\r\n";
         }
     }
 
