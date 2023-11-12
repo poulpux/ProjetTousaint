@@ -84,6 +84,7 @@ public partial class GameManager : StateManager
         {
             Destroy(obj);
         }
-        ChangeState(menu);
+
+        SceneManager.LoadScene("Menu");
     }
 }
